@@ -1,0 +1,11 @@
+language: bash
+
+services:
+- docker
+
+script:
+- docker build -t pengdevs/sample:kotlin .
+
+after_success:
+- docker login -u $DOCKER_USER -p $DOCKER_PASS
+- docker push pengdevs/sample:kotlin
