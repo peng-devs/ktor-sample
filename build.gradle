@@ -15,7 +15,7 @@ dependencies {
 }
 
 shadowJar {
-    baseName = 'kotlin-sample'
+    baseName = 'ktor-sample'
     classifier = null
     version = null
 }
