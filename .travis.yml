@@ -5,9 +5,9 @@ services:
 
 
 script:
-- docker build -t pengdevs/ktor-sample -t pengdevs/ktor-sample:$TRAVIS_BUILD_ID .
+- docker build -t pengdevs/ktor-sample -t pengdevs/ktor-sample:$TRAVIS_BUILD_NUMBER .
 
 after_success:
 - docker login -u $DOCKER_USER -p $DOCKER_PASS
-- docker push pengdevs/ktor-sample:$TRAVIS_BULID_ID
+- docker push pengdevs/ktor-sample:$TRAVIS_BUILD_NUMBER
 - docker push pengdevs/ktor-sample

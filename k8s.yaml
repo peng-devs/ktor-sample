@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: ktor
-        image: pengdevs/sample:ktor
+        image: pengdevs/ktor-sample
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
