@@ -1,0 +1,48 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: ktor
+  name: ktor
+spec:
+  ports:
+  - port: 8080
+  selector:
+    app: ktor
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ktor
+  labels:
+    app: ktor
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ktor
+  template:
+    metadata:
+      labels:
+        app: ktor
+    spec:
+      containers:
+      - name: ktor
+        image: pengdevs/sample:ktor
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+        env:
+        - name: APP_NAME
+          value: "Kotlin"
+
