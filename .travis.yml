@@ -8,4 +8,4 @@ script:
 
 after_success:
 - docker login -u $DOCKER_USER -p $DOCKER_PASS
-- docker push pengdevs/sample:kotlin
+- docker push pengdevs/sample:ktor
