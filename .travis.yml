@@ -4,7 +4,7 @@ services:
 - docker
 
 script:
-- docker build -t pengdevs/sample:kotlin .
+- docker build -t pengdevs/sample:ktor .
 
 after_success:
 - docker login -u $DOCKER_USER -p $DOCKER_PASS
