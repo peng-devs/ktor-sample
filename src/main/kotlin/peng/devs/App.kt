@@ -19,6 +19,8 @@ var AVAILABLE = true
 
 fun main() {
   embeddedServer(Netty, 8080) {
+    install(CallLogging) { level = Level.INFO }
+
     routing {
       get ("/") {
         call.respond(if (AVAILABLE) "Hello, there" else ServiceUnavailable)
