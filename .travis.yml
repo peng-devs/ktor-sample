@@ -3,9 +3,11 @@ language: bash
 services:
 - docker
 
+
 script:
-- docker build -t pengdevs/sample:ktor .
+- docker build -t pengdevs/ktor-sample -t pengdevs/ktor-sample:$TRAVIS_BUILD_ID .
 
 after_success:
 - docker login -u $DOCKER_USER -p $DOCKER_PASS
-- docker push pengdevs/sample:ktor
+- docker push pengdevs/ktor-sample:$TRAVIS_BULID_ID
+- docker push pengdevs/ktor-sample
