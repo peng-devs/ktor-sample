@@ -15,23 +15,23 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.slf4j.event.Level
 
-var AVAILABLE = true
-
 fun main() {
   embeddedServer(Netty, 8080) {
     install(CallLogging) { level = Level.INFO }
 
     routing {
-      get ("/") {
-        call.respond(if (AVAILABLE) "Hello, there" else ServiceUnavailable)
+      var available = true
+
+      get ("/hello") {
+        call.respond("Hi, I'm Ktor server")
       }
 
       get ("/health") {
-        call.respond(if (AVAILABLE) OK else ServiceUnavailable)
+        call.respond(if (available) OK else ServiceUnavailable)
       }
 
       put ("/shutdown") {
-        AVAILABLE = false
+        available = false
         call.respond(OK)
       }
     }
