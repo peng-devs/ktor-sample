@@ -14,12 +14,6 @@ dependencies {
     implementation 'io.ktor:ktor-server-netty:1.2.1'
 }
 
-kotlin {
-    experimental {
-        coroutines "enable"
-    }
-}
-
 shadowJar {
     baseName = 'kotlin-sample'
     classifier = null
