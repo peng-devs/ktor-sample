@@ -21,7 +21,7 @@ fun main() {
 
     routing {
       var available = true
-      val name = System.getenv("APP_NAME") ?: "Ktor"
+      val name = System.getenv("APP_NAME") ?: throw Exception("Unable to load env \$APP_NAME")
 
       get ("/hello") {
         call.respond("Hi, I'm $name server")
