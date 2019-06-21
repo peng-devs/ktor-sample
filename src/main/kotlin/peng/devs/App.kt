@@ -21,9 +21,10 @@ fun main() {
 
     routing {
       var available = true
+      val name = System.getenv("APP_NAME") ?: "Ktor"
 
       get ("/hello") {
-        call.respond("Hi, I'm Ktor server")
+        call.respond("Hi, I'm $name server")
       }
 
       get ("/health") {
